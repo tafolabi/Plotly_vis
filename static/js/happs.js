@@ -66,12 +66,10 @@ function buildMetadata(sample) {
   
     };
     Plotly.newPlot("pie",data,layout);
+  
 
-    d3.json(url).then(function(data) { 
     
-        console.log(data);
-        
-        var data = [
+      var data = 
           {
           x:data ["otu_ids"],
           y:data["sample_values"],
@@ -81,7 +79,7 @@ function buildMetadata(sample) {
               size:data ["sample_values"],
               color:data["otu_ids"]
             }
-      }];
+      };
       
       var layout = {
         title: "Bacteria Bubble  Chart",
@@ -92,18 +90,15 @@ function buildMetadata(sample) {
     
       };
       Plotly.newPlot("bubble",data,layout);
+    });
+  }
   
 
     
-  // //   // @TODO: Use `d3.json` to fetch the sample data for the plots
   
-  // //     // @TODO: Build a Bubble Chart using the sample data
   
-  // //     // @TODO: Build a Pie Chart
-  // //     // HINT: You will need to use slice() to grab the top 10 sample_values,
-  // //     // otu_ids, and labels (10 each).
-  });
-   }
+  
+   
   
   function init() {
     // Grab a reference to the dropdown select element

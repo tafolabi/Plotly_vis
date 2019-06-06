@@ -81,7 +81,7 @@ function buildMetadata(sample) {
             }
       }];
       
-      var data = [trace];
+      var data2 = [trace];
       var layout = {
         title: "Bacteria Bubble  Chart",
         showlegend: false,
@@ -90,7 +90,7 @@ function buildMetadata(sample) {
       
     
       };
-      Plotly.newPlot("bubble",data,layout);
+      Plotly.newPlot("bubble",data2,layout);
     });
   }
   

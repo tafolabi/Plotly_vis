@@ -66,7 +66,35 @@ function buildMetadata(sample) {
   
     };
     Plotly.newPlot("pie",data,layout);
+
+    d3.json(url).then(function(data) { 
+    
+        console.log(data);
+        
+        var data = [
+          {
+          x:data ["otu_ids"],
+          y:data["sample_values"],
+          text:data["otu_labels"],
+          mode: 'markers',
+          marker: {
+              size:data ["sample_values"],
+              color:data["otu_ids"]
+            }
+      }];
+      
+      var layout = {
+        title: "Bacteria Bubble  Chart",
+        showlegend: false,
+        height: 600,
+        width: 600
+      
+    
+      };
+      Plotly.newPlot("bubble",data,layout);
   
+
+    
   // //   // @TODO: Use `d3.json` to fetch the sample data for the plots
   
   // //     // @TODO: Build a Bubble Chart using the sample data

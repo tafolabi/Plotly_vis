@@ -69,7 +69,7 @@ function buildMetadata(sample) {
   
 
     
-      var data = [
+      var trace = [
           {
           x:data ["otu_ids"],
           y:data["sample_values"],
@@ -81,6 +81,7 @@ function buildMetadata(sample) {
             }
       }];
       
+      var data = [trace];
       var layout = {
         title: "Bacteria Bubble  Chart",
         showlegend: false,

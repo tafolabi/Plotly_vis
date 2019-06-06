@@ -1,4 +1,4 @@
-# import os
+import os
 
 import pandas as pd
 # import numpy as np
@@ -10,6 +10,16 @@ from sqlalchemy.ext.automap import automap_base
 
 from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
+
+if not os.environ.get("DYNO"):
+    import config
+    print(config.name)
+
+
+if os.environ.get("JAWSDB_URL"):
+    dburl = os.environ["JAWSDB_URL"]
+else:
+    dburl = "sqlite://"
 
 app = Flask(__name__)
 

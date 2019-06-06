@@ -1,21 +1,12 @@
-
-
-
-// console.log(`/samples/${sample}`);
-// d3.json(`/samples/${sample}`).then(function(data) { 
-// // var metaSample = d3.select("#sample-metadata");
-// console.log(data);
-//   });
-function buildMetadata() {
+function buildMetadata(sample) {
   var url = `/metadata/${sample}`;
   d3.json(url).then(function(data) { 
-  
     console.log(data);
     var metaSample = d3.select("#sample-metadata");
-    metaSample.html("")
+    metaSample.html("");
     Object.enteries(data).forEach(([key,value]) => {
       metaSample.append("h6").text(`${key}:${value}`);
-  });
+    });
 
 
 

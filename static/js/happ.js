@@ -4,7 +4,7 @@ function buildMetadata(sample) {
       console.log(data);
       var metaSample = d3.select("#sample-metadata");
       metaSample.html("");
-      Object.enteries(data).forEach(([key,value]) => {
+      Object.entries(data).forEach(([key,value]) => {
         metaSample.append("h6").text(`${key}:${value}`);
       });
   

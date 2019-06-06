@@ -84,9 +84,7 @@ function buildMetadata(sample) {
       var data2 = [trace];
       var layout = {
         title: "Bacteria Bubble  Chart",
-        showlegend: false,
-        height: 600,
-        width: 600
+       
       
     
       };

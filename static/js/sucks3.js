@@ -13,7 +13,7 @@ function buildMetadata(sample) {
   
   
   
-        buildGauge(data.WFREQ);
+      // buildGauge(data.WFREQ);
     
   });
   };
@@ -49,46 +49,48 @@ function buildMetadata(sample) {
   //   }):
   // }
   
-   function buildCharts(sample) {
+  function buildCharts(sample) {
     var url = `/samples/${sample}`;
     d3.json(url).then(function(data) { 
     
       console.log(data);
+    
       
-      var data = [
+      var pieData = [
         {
         labels:data ["otu_ids"].slice (0,10),
         values:data["sample_values"].slice(0,10),
         hovertext:data["otu_labels"].slice(0,10),
         type: "pie"
     }];
-    var layout = {title: "Bacteria Pie Chart",
+    var pieLayout = {title: "Bacteria Pie Chart",
   
     };
-    Plotly.newPlot("pie",data,layout);
+    Plotly.newPlot("pie",pieData,pieLayout);
   
 
     
-      var trace = [
-          {
-          x:data ["otu_ids"],
+      var scatterData = 
+          [{
+          x:data["otu_ids"],
           y:data["sample_values"],
           text:data["otu_labels"],
+          type:"scatter",
           mode: 'markers',
           marker: {
-              size:data ["sample_values"],
-              color:data["otu_ids"]
+              size:data["sample_values"],
+              color:data["otu_ids"],
+              colorscale: "Earth"
             }
       }];
       
-      var data2 = [trace];
-      var layout = {
-        title: "Bacteria Bubble  Chart",
-       
       
+      var scatterLayout = {
+        title: "Bacteria Bubble  Chart",
+
     
       };
-      Plotly.newPlot("bubble",data2,layout);
+      Plotly.newPlot("bubble",scatterData,scatterLayout);
     });
   }
   
